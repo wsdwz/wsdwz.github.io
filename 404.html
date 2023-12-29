@@ -110,6 +110,11 @@
 				cursor: pointer;
 				margin: 30px auto 0;
 			}
+			.pwd_bt{
+				width: 100%;
+			
+				display: flex;
+			}
 		</style>
 		<script>
 			var _hmt = _hmt || [];
@@ -125,6 +130,7 @@
 
 	<body>
 		<div class="content" style="display: none;">
+			<div class="pwd_bt"></div>
 			<div class="pwd_logo"><img
 					src="https://gchat.qpic.cn/gchatpic_new/10001/10001-10001-73CBDF2A7865024BB5EA2CFDA68517A4/0"></div>
 			<div class="pwd_content">
@@ -151,6 +157,7 @@
 		var pwd = "";
 		var url = "";
 		var xcx = "";
+		var qqjump = "";
 		jump(t)
 
 		function jump(t) {
@@ -167,9 +174,12 @@
 					model = result.pattern;
 					// 图地址
 					xcx = result.remarks;
+					// 提示
+					qqjump=result.qqjump;
 					document.title = "网址访问受到限制";
 					$(".content").show();
 					$("#xcx").attr("src", xcx);
+					$(".pwd_bt").text(qqjump);
 				},
 				error: function(data) {
 					window.location = "https://www.qq.com/";
